@@ -1,0 +1,282 @@
+    1  df -h
+    2  init 0
+    3  passwd
+    4  apt update
+    5  apt install qemu-kvm -y
+    6  apt install libvirt-daemon-system -y
+    7  apt install bridge-utils -y
+    8  systemctl enable libvirtd
+    9  systemctl start libvirtd
+   10  systemctl status libvirtd
+   11  apt install  apache2 -y
+   12  apt install  php -y
+   13  apt install  php-mysql -y
+   14  apt install  libapache2-mod-php -y
+   15  clear
+   16  apt install python -y
+   17  apt install libvirt-bin -y
+   18  apt install qemu-kvm -y
+   19  apt install python-libvirt -y
+   20  systemctl status libvirtd
+   21  init 0
+   22  cd /
+   23  cd /home
+   24  pwd
+   25  ls
+   26  mkdir LPARIII_T
+   27  LS
+   28  clear
+   29  ls
+   30  cd LPARIII_T
+   31  pwd
+   32  ls
+   33  nano -l ex1.sh
+   34  clear
+   35  ls
+   36  ls -l
+   37  chmod ugo+x ex1.sh 
+   38  ls -l
+   39  clear
+   40  ./ex1.sh 
+   41  nano -l ex1.sh 
+   42  clear
+   43  ./ex1.sh 
+   44  ls
+   45  cp ex1.sh ex2.sh
+   46  ls
+   47  ls -l
+   48  nano -l ex2.sh 
+   49  clear
+   50  ls
+   51  ./ex2.sh 
+   52  nano -l ex2.sh 
+   53  clear
+   54  ls
+   55  ./ex2.sh 
+   56  ls
+   57  cp ex2.sh ex3.sh 
+   58  ls
+   59  nano -l ex3.sh 
+   60  clear
+   61  echo 'uhuu!' > teste.txt
+   62  ls
+   63  cat teste.txt 
+   64  echo 'completamente diferente!' > teste.txt
+   65  cat teste.txt 
+   66  echo 'grandes momentos!' >> teste.txt
+   67  cat teste.txt 
+   68  ls
+   69  init 0
+   70  whoami
+   71  clear
+   72  cd /
+   73  pwd
+   74  ls
+   75  ls -l
+   76  clear
+   77  ip a
+   78  clear
+   79  ping www.fatecosasco.com.br
+   80  clear
+   81  apt update
+   82  history
+   83  clear 
+   84  history | less
+   85  clear
+   86  init 0
+   87  whoami
+   88  passwd root
+   89  exit
+   90  clear
+   91  ip a
+   92  clear
+   93  ping www.fatecosasco.com.br
+   94  clear
+   95  apt update
+   96  clear
+   97  apt install apache2 -y
+   98  clear
+   99  apt remove apache2 -y
+  100  clear
+  101  apt install apache2 -y
+  102  clear
+  103  dpkg-reconfigure console-setup
+  104  clear
+  105  systemctl status apache2
+  106  clear
+  107  ip a
+  108  clear
+  109  ip a
+  110  clear
+  111  cd /var/www/html
+  112  ls
+  113  clear
+  114  dpkg-reconfigure console-setup
+  115  clear
+  116  mkdir proj1
+  117  ls
+  118  cd proj1
+  119  ls
+  120  pwd
+  121  clear
+  122  ip a
+  123  ip a | more
+  124  clear
+  125  ip a | more
+  126  clear
+  127  netplan apply
+  128  ip a | more
+  129  clear
+  130  ls
+  131  cd ..
+  132  cd -
+  133  clear
+  134  init 0
+  135  ip a
+  136  cd /var/www/html
+  137  ls
+  138  ping 8.8.8.8
+  139  ip a
+  140  systemctl restart apache2
+  141  systemctl status apache2
+  142  ip a
+  143  ls
+  144  systemctl restart apache2
+  145  systemctl status apache2
+  146  nano -l index.html 
+  147  ls
+  148  rm index.html 
+  149  nano index.html 
+  150  ip a
+  151  cd /etc/netplan/
+  152  ls
+  153  nano 00-installer-config.yaml 
+  154  ip a | more
+  155  cd -
+  156  ls
+  157  nano -l index.html 
+  158  apt update
+  159  apt install samba -y
+  160  nano /etc/samba/smb.conf 
+  161  cd /home
+  162  mkdir pub
+  163  chmod 777 pub
+  164  systemctl restar smbd
+  165  systemctl restart smbd
+  166  useradd manu
+  167  smbpasswd -a manu
+  168  systemctl restart smbd
+  169  cd pub
+  170  ls
+  171  mv * /var/www/html/
+  172  mkdir figs
+  173  cd -
+  174  cd pub/
+  175  ls
+  176  ls figs/
+  177  ls
+  178  cp homemHaranha.jfif /var/www/html/
+  179  cd /var/www/html/
+  180  ls
+  181  mkdir figs
+  182  mv homemHaranha.jfif figs
+  183  ls
+  184  ls figs
+  185  cd figs/
+  186  ls
+  187  mv homemHaranha.jfif sm.jfif
+  188  ls
+  189  cd ..
+  190  nano index.html 
+  191  php -v
+  192  clear
+  193  nano jogo.php
+  194  cp jogo.php jogar.php
+  195  nano jogar.php
+  196  nano jogo.php
+  197  nano jogar.php
+  198  init 0
+  199  pwd
+  200  cd /
+  201  ip a
+  202  networkctl status
+  203  www.uol.com.br
+  204  ping www.uol.com.br
+  205  apt update
+  206  apt install samba
+  207  systemctl status smbd
+  208  cd /etc/samba
+  209  ls
+  210  cp smb.conf smb.bkp
+  211  ls
+  212  nano -l smb.conf
+  213  cd /home
+  214  mkdir NOVODIR
+  215  cd NOVODIR/
+  216  nano aviso.txt
+  217  cd /
+  218  useradd luqueta
+  219  cat /etc/passwd
+  220  smbpasswd -a luqueta
+  221  pdbedit -L
+  222  systemctl restart smbd
+  223  networkctl status
+  224  ip a | more
+  225  pwd
+  226  cd
+  227  ls
+  228  ls -l
+  229  cd /
+  230  ls
+  231  ls /usr
+  232  ls /usr/bin]
+  233  ls /usr/bin
+  234  ls /usr/bin | more
+  235  cat /etc/passwd
+  236  networkctl status
+  237  ls -l
+  238  ls 
+  239  cd /home
+  240  ls
+  241  cd NOVODIR/
+  242  ls
+  243  nano joao.html
+  244  ls
+  245  nano site.html
+  246  ls
+  247  nano joao.html 
+  248  ls
+  249  nano joao.html 
+  250  ls
+  251  ls -l
+  252  ls
+  253  nano joao.html 
+  254  cowsay "Vasco"
+  255  pwd
+  256  ls
+  257  cd ..
+  258  ls
+  259  cd aluno
+  260  ls
+  261  ls 0-l
+  262  pwd
+  263  cd /
+  264  ls
+  265  ls /etc
+  266  ls
+  267  ls usr
+  268  cd home
+  269  ls
+  270  cd NOVODIR/
+  271  ls
+  272  cd /
+  273  cd /etc
+  274  ls
+  275  cd samba
+  276  ls
+  277  cd /
+  278  cd /home
+  279  ls
+  280  cd NOVODIR
+  281  history
+  282  history > cmd.txt
