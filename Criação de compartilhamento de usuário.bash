@@ -14,17 +14,21 @@ nano smbd.conf # editando o arquivo de configuração do samba
 
 # declaração de novo compartilhamento
 
+## ARQUIVO DE CONFIGURAÇÃO DO SAMBA
 [SECRETARIA] # NOME
 path = /home/SECDIR # caminho do diretório
 valid user = jussara # nome do usuário proprietário desse diretório
+## ARQUIVO DE CONFIGURAÇÃO DO SAMBA
+## APÓS A DEFINIÇÃO, ^O E ^X - SALVAR E SAIR
 
-##
 
 cd /home ## voltando ao diretório home
 
-mkdir SECDIR # criando o diretório que foi criado no samba, já que no samba, foi a configuração de um arquivo
+mkdir SECDIR # criando o diretório que foi criado no samba, já que no samba foi somente a configuração de um arquivo
 # na linha de comando que é realmente criado o diretório
 
+cd /home/SECDIR # indo para o diretório SECDIR
+ 
 nano aviso.txt # criação de um arquivo de texto com um simples teste
 
 cd / # voltando a raiz
@@ -51,11 +55,14 @@ cd / # voltando a raiz
 
 nano /etc/samba/smb.conf # configurando novamente o samba
 
+## ARQUIVO DE CONFIGURAÇÃO DO SAMBA
 [publico] 
 comment = teste de compartilhamento de escrita # comentáro
 path = /home/testedir
 valid user = marisa, gabriela
 writable = yes
+## ARQUIVO DE CONFIGURAÇÃO DO SAMBA
+## APÓS A DEFINIÇÃO, ^O E ^X - SALVAR E SAIR
 
 cd /home 
 
