@@ -11,11 +11,12 @@ Roteiro passo a passo de exercício de aula. Executado como root/sudo.
 5) cd /etc/samba  # indo ao diretório do samba  
 6) ls  # listando os diretórios  
 7) nano smbd.conf  # editando o arquivo de configuração do samba
+
+Declaração de novo compartilhamento (salvar com ^O e sair com ^X):
 ```ini
-   Declaração de novo compartilhamento (salvar com ^O e sair com ^X):
-   [SECRETARIA]  # nome
-   path = /home/SECDIR  # caminho do diretório
-   valid user = jussara  # usuário proprietário
+[SECRETARIA]  # nome
+path = /home/SECDIR  # caminho do diretório
+valid user = jussara  # usuário proprietário
 ```
 8) cd /home  # voltando ao diretório home  
 9) mkdir SECDIR  # criando o diretório definido no samba  
