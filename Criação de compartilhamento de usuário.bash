@@ -45,6 +45,23 @@ networkctl status # verificando o ip da máquina
 # com duas barras invertidas "\\". ex: \\192.168.0.12
 
 
+# EXERCICIO 2 
+
+cd / # voltando a raiz
+
+nano /etc/samba/smb.conf # configurando novamente o samba
+
+[publico] 
+comment = teste de compartilhamento de escrita # comentáro
+path = /home/testedir
+valid user = marisa, gabriela
+writable = yes
+
+cd /home 
+
+mkdir testedir # criação do diretorio
+
+chmod o+w testedir # alterando o moderador/dono do diretório (permissões)
 
 
 
