@@ -16,7 +16,7 @@ Declaração de novo compartilhamento (salvar com ^O e sair com ^X):
 ```ini
 [SECRETARIA]  # nome
 path = /home/SECDIR  # caminho do diretório
-valid user = jussara  # usuário proprietário
+valid users = jussara  # usuário proprietário
 ```
 8) cd /home  # voltando ao diretório home  
 9) mkdir SECDIR  # criando o diretório definido no samba  
@@ -44,7 +44,7 @@ valid user = jussara  # usuário proprietário
    [publico]
    comment = teste de compartilhamento de escrita  # comentário
    path = /home/testedir
-   valid user = marisa, gabriela
+   valid users = marisa, gabriela
    writable = yes
    ```
 
