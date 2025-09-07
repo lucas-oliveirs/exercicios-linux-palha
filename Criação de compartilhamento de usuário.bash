@@ -70,5 +70,19 @@ mkdir testedir # criação do diretorio
 
 chmod o+w testedir # alterando o moderador/dono do diretório (permissões)
 
+useradd marisa #criando usuário localmente
+
+useradd gabriela #criando usuário localmente
+
+smbpasswd -a gabriela # criação do usuário samba
+
+smbpasswd -a marisa # criação do usuário samba
+
+systemctl restart smbd # restartando samba
+
+systemctl status smbd # verificando a conexão do samba
+
+ip -br a # verificando o ip 
+
 
 
