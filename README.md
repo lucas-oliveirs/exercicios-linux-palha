@@ -1,6 +1,8 @@
 # Exercícios Linux – Samba
 
-Roteiro passo a passo de exercício de aula. Executado como root/sudo.
+Roteiro passo a passo de exercícios de aula. Executado como root/sudo.
+
+---
 
 ## Exercício 1 – Compartilhamento
 
@@ -53,30 +55,92 @@ writable = yes
 4) mkdir testedir  # criar diretório  
 5) chmod o+w testedir  # ajustar permissões (gravação para outros)
 
-
-- `ip -br a`  # lista os IPs das interfaces de rede em formato resumido (brief)  
-- `nano -l /etc/samba/smb.conf`  # editando a configuração do Samba com numeração de linhas
-
-
 Comandos sequenciais:
-1. `cd /home`  # para criar o diretório  
-2. `mkdir testedir`  
-3. `chmod o+w testedir`  # dando o direito de escrita aos others (o = others; w = write)  
-4. `ls -l`  # para visualizar o resultado, ver as permissões do diretório  
-5. `useradd marisa`  # criar o usuário localmente
-6. `useradd gabriela` # criar o usuário localmente
-7. `cat /etc/passwd`  # verificar a criação do usuário  
-8. `smbpasswd -a gabriela`  # criação do usuário no Samba
-9. `smbpasswd -a marisa`  # criação do usuário no Samba
-10. `pdbedit -L`  # verifica os usuários Samba  
-11. `systemctl restart smbd`  # reiniciando o Samba  
-12. `systemctl status smbd`  # verificando o status/conexão do Samba  
-13. `ip -br a`  # verificar o IP para teste no cliente
-14. Realizar o acesso remoto colocando o IP da máquina na aba de acesso rápido do Windows
+1. cd /home  # para criar o diretório  
+2. mkdir testedir  
+3. chmod o+w testedir  # dando o direito de escrita aos others (o = others; w = write)  
+4. ls -l  # visualizar permissões do diretório  
+5. useradd marisa  # criar o usuário localmente
+6. useradd gabriela  # criar o usuário localmente
+7. cat /etc/passwd  # verificar a criação do usuário  
+8. smbpasswd -a gabriela  # criação do usuário no Samba
+9. smbpasswd -a marisa  # criação do usuário no Samba
+10. pdbedit -L  # verifica os usuários Samba  
+11. systemctl restart smbd  # reiniciando o Samba  
+12. systemctl status smbd  # verificando o status/conexão do Samba  
+13. ip -br a  # verificar o IP para teste no cliente
+14. Teste de acesso remoto no Windows: colocar o IP da máquina na aba de acesso rápido
 15. Realizar alguma alteração de teste para verificar o compartilhamento de escrita
 
 ---
 
+## Exercício 3 – Apache + Samba
+
+Integração de um site web com Apache e compartilhamento de arquivos via Samba.
+
+### 1. Preparação e instalação
+1) cd /  # voltar à raiz  
+2) apt-get update  # atualizar lista de pacotes  
+3) apt-get install apache2  # instalar Apache (e Samba se necessário)  
+4) systemctl status apache2  # verificar se o Apache está ativo  
+5) ip -br a  # verificar IP da máquina  
+
+### 2. Configuração do Apache
+1) cd /var/www/html  # acessar pasta padrão do Apache  
+2) mkdir nportifolio  # criar diretório do portfólio  
+3) cd nportifolio  # entrar no diretório  
+4) cp /etc/apache2/sites-available/000-default.conf nportifolio.conf  # copiar configuração default
+
+Conteúdo do nportifolio.conf com comentários explicativos:  
+~~~apache
+<VirtualHost *:80>
+    # O site vai responder em todas as interfaces (*) na porta 80 (HTTP)
+    ServerName serv1.nportifolio.local
+
+    # E-mail do administrador (usado em mensagens de erro do Apache)
+    ServerAdmin root@nportifolio.local
+
+    # Pasta onde ficam os arquivos do site (index.html, CSS, imagens etc.)
+    DocumentRoot /var/www/html/nportifolio
+
+    # Nome alternativo para acessar o site (além do ServerName)
+    ServerAlias nportifolio
+
+    # Caminho do log de erros específicos deste VirtualHost
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+
+    # Caminho do log de acessos, usando o formato combinado (mais detalhado)
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+~~~
+
+5) a2ensite nportifolio.conf  # ativar site  
+6) systemctl reload apache2  # reiniciar serviço Apache  
+7) systemctl status apache2  # verificar status  
+
+### 3. Configuração do Samba
+1) nano /etc/samba/smb.conf  # editar configuração do Samba
+
+Adicionar compartilhamento (salvar com ^O e sair com ^X):  
+~~~ini
+[portfolio]
+comment = Portfólio pessoal; Mescla de Apache com Samba
+path = /var/www/html/nportifolio
+writable = yes
+valid users = aluno, Magda, marisa, gabriela, loqueta
+~~~
+
+2) systemctl restart smbd  # reiniciar serviço Samba  
+
+### 4. Testes e resultado
+- Abrir navegador e acessar: http://<IP-da-máquina>  
+- Usuários configurados no Samba podem acessar e editar os arquivos no diretório nportifolio  
+- Integração completa entre serviço web (Apache) e compartilhamento de rede (Samba)
+
+---
+
 ## Observações
-- Execute os comandos como **root** ou com **sudo**.  
+- Execute todos os comandos como **root** ou **sudo**.  
+- Certifique-se de que a rede local permite acesso aos serviços configurados.  
+- Teste sempre o compartilhamento de escrita e a visualização da página web após alterações.  
 - Este arquivo é um guia passo a passo; não é um script automatizado.
