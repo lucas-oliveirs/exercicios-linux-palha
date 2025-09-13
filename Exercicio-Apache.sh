@@ -36,3 +36,15 @@ systemctl reload apache2 # reiniciando o serviço
 systemctl status apache2 
 
 
+## PARTE DO SAMBA
+nano /etc/samba/smb.conf
+
+[portfolio]
+comment = Portfólio pessoal; Mescla de Apache com Samba
+path = var/www/html/nportifolio
+writable = yes
+valid users = aluno, Magda, marisa, gabriela, loqueta
+
+
+systemctl restart smbd # reiniciando o serviço
+
