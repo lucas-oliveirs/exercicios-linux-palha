@@ -1,6 +1,6 @@
 # Exercícios Linux – Samba
 
-Roteiro passo a passo de exercícios de aula. Executado como root/sudo.
+Lista de exercícios didáticos dados em aula para a matéria de Laboratório de Desenvolvimento II - Utilizando Linux Ubuntu Server v18.11
 
 ---
 
